@@ -1,0 +1,6 @@
+firecrawl-py
+beautifulsoup4
+pandas
+python-dotenv
+lxml
+google-cloud-storage

@@ -1,0 +1,16 @@
+# Use the official lightweight Python image
+FROM python:3.12-slim
+
+# Allow statements and log messages to immediately appear in the Knative logs
+ENV PYTHONUNBUFFERED True
+
+# Copy local code to the container image
+ENV APP_HOME /app
+WORKDIR $APP_HOME
+COPY . ./
+
+# Install production dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Cloud Run Jobs execute the script directly (no web server needed)
+CMD ["python", "main.py"]
